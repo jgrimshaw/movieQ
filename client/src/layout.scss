@@ -1,0 +1,14 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: gray;
+    padding: 1rem;
+}
+
+.content {
+    background-color: orange;
+    flex-grow: 1;
+}

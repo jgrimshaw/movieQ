@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body,
+main,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
