@@ -23,6 +23,7 @@ const typeDefs = gql`
         button: String
         videos: [Video]
         user: User
+        slug: String
     }
 
     type User {
@@ -35,10 +36,12 @@ const typeDefs = gql`
     type Query {
         videos: [Video]
         series: [Series]
-        serie(id: ID): Series
+        serie(slug: String): Series
         users: [User]
     }
 `;
+
+// serie(slug: String): Series
 
 const resolvers = {
     Query: {
@@ -56,7 +59,7 @@ const resolvers = {
 
         serie: (parent, args, context) => {
             return client
-                .query("SELECT * from series WHERE id = $1", [args.id])
+                .query("SELECT * from series WHERE slug = $1", [args.slug])
                 .then((result) => {
                     return result.rows[0];
                 });

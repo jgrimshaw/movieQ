@@ -2,12 +2,13 @@ import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
 const SERIES_QUERY = gql`
-    query GetSeries($serieId: ID) {
-        serie(id: $serieId) {
+    query GetSeries($slug: String) {
+        serie(slug: $slug) {
             id
             title
             link
             button
+            slug
             videos {
                 id
                 title
@@ -16,14 +17,17 @@ const SERIES_QUERY = gql`
     }
 `;
 
-export default function Series() {
+export default function Published() {
     const { series } = useParams();
     const { loading, error, data } = useQuery(SERIES_QUERY, {
-        variables: { serieId: series },
+        variables: { slug: series },
     });
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (error) return <p>Error : </p>;
+
+    console.log(data.serie.title)
 
     return <div>{JSON.stringify(data, null, 2)}</div>;
+    
 }

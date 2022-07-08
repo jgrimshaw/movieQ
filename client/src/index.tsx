@@ -10,7 +10,13 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const element = document.getElementById("root")
+
+if(element === null) {
+    throw new Error('must define root element')
+}
+
+const root = ReactDOM.createRoot(element);
 root.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
