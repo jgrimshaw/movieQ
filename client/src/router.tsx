@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./Layout";
 import Welcome from "./pages/Welcome";
 import Published from "./pages/Published";
+import Edit from "./pages/Edit";
 
 export default function Router() {
     return (
@@ -10,6 +11,7 @@ export default function Router() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Welcome />} />
+                    <Route path="edit" element={<Edit />} />
                     <Route path=":series" element={<Published />} />
                 </Route>
             </Routes>

@@ -39,6 +39,14 @@ const typeDefs = gql`
         serie(slug: String): Series
         users: [User]
     }
+
+    type Mutation {
+        createSerie(
+            title: String!, 
+            link: String!, 
+            button: String!
+        ): Series
+    }
 `;
 
 // serie(slug: String): Series
@@ -104,6 +112,19 @@ const resolvers = {
                 });
         },
     },
+
+    Mutation: {
+
+        createSerie: (parent, args, context) => {
+            console.log(args);
+            return client
+                .query("INSERT INTO series (title, button, link) VALUES ($1, $2, $3) returning id", [args.title, args.button, args.link])
+                .then((result) => {
+                    return result.rows[0];
+                });
+
+        },
+    }
 };
 
 const server = new ApolloServer({
