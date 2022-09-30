@@ -72,8 +72,6 @@ export default function Form(props: FormProps) {
 
         </div>
 
-        // render active series movie list
-        // render all series
     )
 
 }

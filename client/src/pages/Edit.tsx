@@ -59,16 +59,12 @@ export default function Edit() {
                         },])
                     }))
                 }
-            })
-            }
+            })}
             />
-
             <div>
                 {/* {JSON.stringify(data)} */}
                 <SeriesList series={data.series} />
             </div>
-
         </>
-
     )
 }
