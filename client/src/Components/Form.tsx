@@ -20,57 +20,57 @@ export default function Form(props: FormProps) {
     };
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <h2>Series</h2>
-                <input
-                    type='text'
-                    name='serieTitle'
-                    placeholder='Series Title'
-                    onChange={onChange}
-                />
-                <input
-                    type='text'
-                    name='btnUrl'
-                    placeholder='Enter external URL for the CTA button'
-                    onChange={onChange}
-                />
-                <input
-                    type='text'
-                    name='btnText'
-                    placeholder='Enter CTA button text'
-                    onChange={onChange}
-                />
 
-                <h2>Videos</h2>
-                <input
-                    type='text'
-                    name='videoTitle'
-                    placeholder='Video Title'
-                    onChange={onChange}
-                />
-                <input
-                    type='text'
-                    name='videoDescription'
-                    placeholder='Enter Video Description'
-                    onChange={onChange}
-                />
-                <input
-                    type='text'
-                    name='videoUrl'
-                    placeholder='Video URL'
-                    onChange={onChange}
-                />
+        <form className="form" onSubmit={onSubmit}>
+            <h2>Series</h2>
+            <input
+                type='text'
+                name='serieTitle'
+                placeholder='Series Title'
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                name='btnUrl'
+                placeholder='Enter external URL for the CTA button'
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                name='btnText'
+                placeholder='Enter CTA button text'
+                onChange={onChange}
+            />
 
-                <div>
-                    <button>Set Time and Date</button>
-                    <button>Save</button>
-                </div>
+            <h2>Videos</h2>
+            <input
+                type='text'
+                name='videoTitle'
+                placeholder='Video Title'
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                name='videoDescription'
+                placeholder='Enter Video Description'
+                onChange={onChange}
+            />
+            <input
+                type='text'
+                name='videoUrl'
+                placeholder='Video URL'
+                onChange={onChange}
+            />
 
-            </form>
+            <div className="btn-container">
+                <button className="btn">Set Time and Date</button>
+                <button className="btn">Save</button>
+            </div>
+
+        </form>
 
 
-        </div>
+
 
     )
 

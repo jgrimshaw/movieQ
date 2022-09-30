@@ -11,9 +11,15 @@ main,
     height: 100%;
 }
 
+html {
+    // use this to make everything in 10s, ex. 2.2rem == 22 px / 1.6rem = 16px
+    font-size: 62.5%;
+}
+
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
     background-color: #1D2228;
-    color: #E1E2E2
+    color: #E1E2E2;
 }

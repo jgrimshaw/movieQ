@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import "./index.scss";
+import "./styles/layout.scss";
 
 const client = new ApolloClient({
     uri: "http://localhost:4000/",
@@ -12,7 +12,7 @@ const client = new ApolloClient({
 
 const element = document.getElementById("root")
 
-if(element === null) {
+if (element === null) {
     throw new Error('must define root element')
 }
 

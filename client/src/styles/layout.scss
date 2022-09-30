@@ -1,0 +1,134 @@
+@import 'base/settings';
+@import 'base/base';
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+// HEADER
+
+header {
+    background-color: $color-grey;
+    border-bottom: 1px solid $color-white;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    align-items: center;
+
+    // background: linear-gradient(180deg, rgba(29,34,40,1) 70%, rgba(225,226,226,1) 100%);
+}
+
+.header-menu-item--logo {
+    color: $color-orange;
+    font-size: 2rem;
+    font-weight: $font-light;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.header-menu-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    list-style-type: none;
+    width: 100%;
+
+    .header-menu-item {
+        color: #E1E2E2;
+        padding: 0 2.5rem;
+    }
+}
+
+.header-btn {
+    background-color: $color-orange;
+    border: none;
+    margin-right: 2rem;
+    white-space: nowrap;
+    padding: 0.5rem 0.7rem;
+    color: $color-white;
+    font-weight: $font-bold;
+    border-radius: 0.3rem;
+    margin-left: 3rem;
+}
+
+
+// PUBLISH PAGE
+.publish-main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem
+}
+
+.iframe-and-serie-title-container {
+    width: 70%
+}
+
+
+// EDIT PAGE
+h2 {
+    color: $color-orange;
+    font-weight: $font-bold;
+    border-bottom: 1px solid $color-orange;
+    padding-bottom: 0.3rem;
+}
+
+.edit-main-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+ 
+    input {
+        color: $color-white;
+        height: 2.5rem;
+        margin-bottom: 2rem;
+        width: 28rem;
+        border: none;
+        border-radius: 0.3rem;
+        padding-left: 1rem;
+        background-color: lighten($color-grey, 10%);
+        
+        &:focus-visible {
+            outline: none;
+            border: 1px solid $color-orange;
+        }
+
+        &::placeholder {
+            color: darken($color-white, 40%);
+            font-weight: $font-light;
+            letter-spacing: $font-spacing;
+        }
+    }
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: $color-grey;
+    border: 1px solid darken($color-orange, 25%);
+    color: darken($color-orange, 25%);
+    font-weight: $font-bold;
+    letter-spacing: $font-spacing;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+
+    &:hover {
+        background-color: lighten($color-grey, 2%);
+        border: 1px solid $color-orange;
+        color: $color-orange;
+    }
+}
+
+
+.list-container{
+    width: 20rem;
+}
+

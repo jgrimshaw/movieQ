@@ -1,4 +1,6 @@
 
+// @ts-nocheck
+
 import { useQuery, useMutation, gql } from "@apollo/client";
 import Form from '../Components/Form';
 import SeriesList from "../Components/SeriesList";
@@ -40,7 +42,7 @@ export default function Edit() {
     // console.log(data);
 
     return (
-        <>
+        <div className="edit-main-container">
             <Form handleSubmit={(values: any) => createSerie({
                 variables: {
                     title: values.serieTitle,
@@ -61,10 +63,10 @@ export default function Edit() {
                 }
             })}
             />
-            <div>
-                {/* {JSON.stringify(data)} */}
-                <SeriesList series={data.series} />
-            </div>
-        </>
+
+            {/* {JSON.stringify(data)} */}
+            <SeriesList series={data.series} />
+
+        </div>
     )
 }
