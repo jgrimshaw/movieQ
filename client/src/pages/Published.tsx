@@ -1,5 +1,7 @@
+// @ts-nocheck
+
 import { useQuery, gql } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SERIE_QUERY = gql`
     query GetSerie($slug: String) {
@@ -20,6 +22,7 @@ const SERIE_QUERY = gql`
 
 export default function Published() {
     const { series } = useParams();
+
     const { loading, error, data } = useQuery(SERIE_QUERY, {
         variables: { slug: series },
     });
@@ -27,7 +30,7 @@ export default function Published() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : </p>;
 
-    console.log(data.serie.title);
+    console.log(data);
 
     return (
         <div className='publish-main-container'>

@@ -11,8 +11,8 @@ export default function Router() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Welcome />} />
-                    <Route path="edit" element={<Edit />} />
-                    <Route path=":series" element={<Published />} />
+                    <Route path=":slug/edit" element={<Edit />} />
+                    <Route path=":slug" element={<Published />} />
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 interface FormProps {
     handleSubmit: (values: any) => void
+    defaultValue: any
 }
 
 export default function Form(props: FormProps) {
@@ -28,18 +29,21 @@ export default function Form(props: FormProps) {
                 name='serieTitle'
                 placeholder='Series Title'
                 onChange={onChange}
+                defaultValue={props.defaultValue.serieTitle}
             />
             <input
                 type='text'
                 name='btnUrl'
                 placeholder='Enter external URL for the CTA button'
                 onChange={onChange}
+                defaultValue={props.defaultValue.btnUrl}
             />
             <input
                 type='text'
                 name='btnText'
                 placeholder='Enter CTA button text'
                 onChange={onChange}
+                defaultValue={props.defaultValue.btnText}
             />
 
             <h2>Videos</h2>
@@ -62,16 +66,17 @@ export default function Form(props: FormProps) {
                 onChange={onChange}
             />
 
+            <input
+                type='datetime-local'
+                name='date'
+
+            />
+
             <div className="btn-container">
                 <button className="btn">Set Time and Date</button>
                 <button className="btn">Save</button>
             </div>
 
         </form>
-
-
-
-
     )
-
 }

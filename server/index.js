@@ -85,7 +85,7 @@ const resolvers = {
     Series: {
         videos: (parent, args, context) => {
             return client
-                .query("SELECT * from videos WHERE series_id = $1", [parent.id])
+                .query("SELECT * from videos WHERE series_id = $1 order by release desc", [parent.id])
                 .then((result) => {
                     return result.rows;
                 });

@@ -69,14 +69,22 @@ header {
 h2 {
     color: $color-orange;
     font-weight: $font-bold;
+    font-size: 2.5rem;
     border-bottom: 1px solid $color-orange;
     padding-bottom: 0.3rem;
+}
+
+h3 {
+    font-size: 1.9rem;
+    font-weight: $font-bold;
+    margin: 0;
 }
 
 .edit-main-container {
     display: flex;
     justify-content: space-evenly;
     margin: auto;
+    margin-top: 3rem;
 }
 
 .form {
@@ -84,10 +92,11 @@ h2 {
     flex-direction: column;
  
     input {
+        font-size: 1.8rem;
         color: $color-white;
-        height: 2.5rem;
+        height: 4rem;
         margin-bottom: 2rem;
-        width: 28rem;
+        width: 36rem;
         border: none;
         border-radius: 0.3rem;
         padding-left: 1rem;
@@ -109,7 +118,9 @@ h2 {
 .btn-container {
     display: flex;
     justify-content: space-between;
+    min-height: 2.5rem;
 }
+
 
 .btn {
     background-color: $color-grey;
@@ -119,6 +130,7 @@ h2 {
     letter-spacing: $font-spacing;
     padding: 0.5rem 1rem;
     border-radius: 0.4rem;
+    margin-top: 1.5rem;
 
     &:hover {
         background-color: lighten($color-grey, 2%);
@@ -127,8 +139,42 @@ h2 {
     }
 }
 
-
-.list-container{
-    width: 20rem;
+.btn-hide {
+    display: none;
 }
 
+
+.list-container {
+    width: 36rem;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        
+        li {
+            margin-bottom: 2rem;
+            cursor: pointer;
+
+            .btn-container {
+                justify-content: flex-start;
+
+                .btn {
+                    margin-right: 2rem;
+                }
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.selected {
+    color: $color-orange;
+}
+
+input[type="datetime-local"] {
+    background-color: red;
+}

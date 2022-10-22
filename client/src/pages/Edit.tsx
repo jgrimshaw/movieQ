@@ -4,6 +4,8 @@
 import { useQuery, useMutation, gql } from "@apollo/client";
 import Form from '../Components/Form';
 import SeriesList from "../Components/SeriesList";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const SERIES_QUERY = gql`
     query GetSeries {
@@ -12,6 +14,7 @@ const SERIES_QUERY = gql`
             title
             link
             button
+            slug
             videos {
                 id
                 title
@@ -31,6 +34,9 @@ const CREATE_SERIES_MUTATION = gql`
 `;
 
 export default function Edit() {
+    const { slug } = useParams();
+
+    const [videoId, setVideoId] = useState(null);
 
     const { loading, error, data } = useQuery(SERIES_QUERY);
     const [createSerie] = useMutation(CREATE_SERIES_MUTATION);
@@ -39,11 +45,17 @@ export default function Edit() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : </p>;
 
+
+    const currentSerie = data.series.find((serie) => {
+        return serie.slug === slug
+    })
+
     // console.log(data);
+    console.log(currentSerie)
 
     return (
         <div className="edit-main-container">
-            <Form handleSubmit={(values: any) => createSerie({
+            <Form key={slug} defaultValue={{ serieTitle: currentSerie.title, btnUrl: currentSerie.button, btnText: currentSerie.link }} handleSubmit={(values: any) => createSerie({
                 variables: {
                     title: values.serieTitle,
                     link: values.btnUrl,
@@ -65,7 +77,7 @@ export default function Edit() {
             />
 
             {/* {JSON.stringify(data)} */}
-            <SeriesList series={data.series} />
+            <SeriesList series={data.series} currentVideo={videoId} setCurrentVideo={setVideoId} />
 
         </div>
     )
