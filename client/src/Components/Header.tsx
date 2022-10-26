@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 
 function Header() {
     const { slug } = useParams();
-    console.log(slug)
+
+    // console.log(slug)
 
     return (
 
@@ -17,14 +18,12 @@ function Header() {
             <nav className='header-menu-items'>
                 <Link to={`${slug}/edit`} className='header-menu-item'>edit</Link>
                 <li className='header-menu-item'>preview</li>
-                <Link to="slug" className='header-menu-item'>publish</Link>
+                <Link to={`/${slug}`} className='header-menu-item'>publish</Link>
                 <li className='header-menu-item'>logout</li>
             </nav>
             <button className='header-btn'>Click here to get your 15% discount now!</button>
         </header>
     )
-
-
 }
 
 export default Header;

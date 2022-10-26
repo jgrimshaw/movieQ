@@ -51,7 +51,7 @@ export default function Edit() {
     })
 
     // console.log(data);
-    console.log(currentSerie)
+    // console.log(currentSerie)
 
     return (
         <div className="edit-main-container">

@@ -6,6 +6,18 @@ main {
     flex-direction: column;
 }
 
+h2 {
+    font-weight: $font-bold;
+    font-size: 2.5rem;
+    padding-bottom: 0.3rem;
+}
+
+h3 {
+    font-size: 1.9rem;
+    font-weight: $font-bold;
+    margin: 0;
+}
+
 // HEADER
 
 header {
@@ -57,124 +69,157 @@ header {
 .publish-main-container {
     display: flex;
     justify-content: space-between;
-    padding: 5rem
+    padding: 5rem;
+
+    ul {
+        list-style-type: none;
+        padding: 0 2rem 2rem 6rem;
+    }
+
+    li {
+        padding-bottom: 2rem;
+        position: relative;
+
+        &:hover {
+            color: $color-orange;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 1rem;
+                left: -5rem;
+                padding-top: 3rem;
+                width: 4rem;
+                background: $color-orange;
+                clip-path: polygon(50% 0, 100% 100%, 0 100%);
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .date {
+        color: lighten($color-grey, 40%);
+        font-weight: $font-bold;
+    }
+
+
 }
 
 .iframe-and-serie-title-container {
-    width: 70%
+    width: 70%;
 }
+
+
 
 
 // EDIT PAGE
-h2 {
-    color: $color-orange;
-    font-weight: $font-bold;
-    font-size: 2.5rem;
-    border-bottom: 1px solid $color-orange;
-    padding-bottom: 0.3rem;
-}
-
-h3 {
-    font-size: 1.9rem;
-    font-weight: $font-bold;
-    margin: 0;
-}
 
 .edit-main-container {
     display: flex;
     justify-content: space-evenly;
     margin: auto;
     margin-top: 3rem;
-}
 
-.form {
-    display: flex;
-    flex-direction: column;
- 
-    input {
-        font-size: 1.8rem;
-        color: $color-white;
-        height: 4rem;
-        margin-bottom: 2rem;
-        width: 36rem;
-        border: none;
-        border-radius: 0.3rem;
-        padding-left: 1rem;
-        background-color: lighten($color-grey, 10%);
-        
-        &:focus-visible {
-            outline: none;
-            border: 1px solid $color-orange;
-        }
-
-        &::placeholder {
-            color: darken($color-white, 40%);
-            font-weight: $font-light;
-            letter-spacing: $font-spacing;
-        }
-    }
-}
-
-.btn-container {
-    display: flex;
-    justify-content: space-between;
-    min-height: 2.5rem;
-}
-
-
-.btn {
-    background-color: $color-grey;
-    border: 1px solid darken($color-orange, 25%);
-    color: darken($color-orange, 25%);
-    font-weight: $font-bold;
-    letter-spacing: $font-spacing;
-    padding: 0.5rem 1rem;
-    border-radius: 0.4rem;
-    margin-top: 1.5rem;
-
-    &:hover {
-        background-color: lighten($color-grey, 2%);
-        border: 1px solid $color-orange;
+    h2 {
         color: $color-orange;
+        border-bottom: 1px solid $color-orange;
     }
-}
 
-.btn-hide {
-    display: none;
-}
-
-
-.list-container {
-    width: 36rem;
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-        
-        li {
+    .form {
+        display: flex;
+        flex-direction: column;
+     
+        input {
+            font-size: 1.8rem;
+            color: $color-white;
+            height: 4rem;
             margin-bottom: 2rem;
-            cursor: pointer;
-
-            .btn-container {
-                justify-content: flex-start;
-
-                .btn {
-                    margin-right: 2rem;
+            width: 36rem;
+            border: none;
+            border-radius: 0.3rem;
+            padding-left: 1rem;
+            background-color: lighten($color-grey, 10%);
+            
+            &:focus-visible {
+                outline: none;
+                border: 1px solid $color-orange;
+            }
+    
+            &::placeholder {
+                color: darken($color-white, 40%);
+                font-weight: $font-light;
+                letter-spacing: $font-spacing;
+            }
+        }
+    }
+    
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        min-height: 2.5rem;
+    }
+    
+    
+    .btn {
+        background-color: $color-grey;
+        border: 1px solid darken($color-orange, 25%);
+        color: darken($color-orange, 25%);
+        font-weight: $font-bold;
+        letter-spacing: $font-spacing;
+        padding: 0.5rem 1rem;
+        border-radius: 0.4rem;
+        margin-top: 1.5rem;
+    
+        &:hover {
+            background-color: lighten($color-grey, 2%);
+            border: 1px solid $color-orange;
+            color: $color-orange;
+        }
+    }
+    
+    .btn-hide {
+        display: none;
+    }
+    
+    
+    .list-container {
+        width: 36rem;
+    
+        ul {
+            list-style-type: none;
+            padding: 0;
+            
+            li {
+                margin-bottom: 2rem;
+                cursor: pointer;
+    
+                .btn-container {
+                    justify-content: flex-start;
+    
+                    .btn {
+                        margin-right: 2rem;
+                    }
+                }
+    
+                a {
+                    color: white;
+                    text-decoration: none;
                 }
             }
-
-            a {
-                color: white;
-                text-decoration: none;
-            }
         }
+    }
+    
+    .selected {
+        color: $color-orange;
+    }
+    
+    input[type="datetime-local"] {
+        background-color: red;
     }
 }
 
-.selected {
-    color: $color-orange;
-}
-
-input[type="datetime-local"] {
-    background-color: red;
-}

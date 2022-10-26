@@ -1,18 +1,17 @@
 // @ts-nocheck
 
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import formatDate from "./formatDate";
 
 
 
 
 export default function SeriesList(props: any) {
     const { slug } = useParams();
-    console.log('seriesList', slug)
+    // console.log(slug)
 
     //console.log(props.series)
-
-
 
     useEffect(() => {
         props.setCurrentVideo(null);
@@ -26,7 +25,7 @@ export default function SeriesList(props: any) {
     const currentSerie = props.series.find((serie) => {
         return serie.slug === slug
     })
-    console.log(currentSerie)
+    // console.log(currentSerie)
 
     // onClick render movies that belong to the clicked serie
     return (
@@ -43,7 +42,7 @@ export default function SeriesList(props: any) {
                                 onClick={event => handleVideoClick(event, video.id)}
                             >
                                 <h3>{video.title}</h3>
-                                <div>{video.release}</div>
+                                <div>{formatDate(video.release)}</div>
 
                                 <div className="btn-container">
                                     <button className={selectedVideo ? "btn" : "btn-hide"}>Edit</button>

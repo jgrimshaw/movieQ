@@ -1,7 +1,8 @@
-// @ts-nocheck
 
+// @ts-nocheck
 import { useQuery, gql } from "@apollo/client";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import formatDate from "../Components/formatDate";
 
 const SERIE_QUERY = gql`
     query GetSerie($slug: String) {
@@ -14,6 +15,7 @@ const SERIE_QUERY = gql`
             videos {
                 id
                 title
+                release
                 description
             }
         }
@@ -21,16 +23,16 @@ const SERIE_QUERY = gql`
 `;
 
 export default function Published() {
-    const { series } = useParams();
-
+    // console.log(useParams());
+    const { slug } = useParams();
     const { loading, error, data } = useQuery(SERIE_QUERY, {
-        variables: { slug: series },
+        variables: { slug: slug },
     });
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : </p>;
 
-    console.log(data);
+    // console.log(data.serie.title);
 
     return (
         <div className='publish-main-container'>
@@ -46,17 +48,20 @@ export default function Published() {
                     title="Embedded youtube"
                 />
 
-                <h2>Now playing: {data.serie.title}</h2>
+                <h3>Now playing: {data.serie.title}</h3>
             </div>
 
-            <ul className='video-list'>
-                {data.serie.videos.map((video: { id: number, title: string, description: string }) => (
-                    <div key={video.id}>
-                        {video.title} <div>{video.description}</div> <br></br>
-                    </div>
+            <ul>
+                {data.serie.videos.map((video: { id: number, title: string, release: string, description: string }) => (
+                    <li key={video.id}>
+                        <h3> {video.title}</h3>
+                        <p className="date">{formatDate(video.release)}</p>
+                        <p>{video.description}</p>
+                    </li>
                 )
                 )}
             </ul>
+
         </div>
     );
 }
